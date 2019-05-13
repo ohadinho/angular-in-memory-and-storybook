@@ -1,0 +1,41 @@
+<div class="app-container">
+  <div>
+    <label>GET</label> - <label>api/Server/Cities/all</label>
+    <ul *ngFor="let city of citiesAllGet$ | async">
+      <li>ID: {{city.id}}, Name: {{city.name}}</li>
+    </ul>
+  </div>
+  <hr>
+  <div>
+    <form #formCityAdd="ngForm" (ngSubmit)="onCitiesAddPost()" novalidate>
+      <label for="cityName">POST</label> - <label>api/Server/Cities/add</label>
+      <input type="text" id="cityName" name="cityName" [(ngModel)]="handleCitiesAdd.cityUiContent.city.name"
+             (keydown)="buttonPressed = eButtonPressed.None"
+             #cityName="ngModel"
+             [ngClass]="{ 'is-invalid': formCityAdd.submitted && formCityAdd.invalid }"
+             required/>
+      <button type="submit">Send</button>
+      <span *ngIf="buttonPressed == eButtonPressed.CitiesAdd">{{handleCitiesAdd.cityUiContent.response$ | async}}</span>
+      <span *ngIf="formCityAdd.submitted && cityName.invalid" class="error-message">
+        City Name is required
+      </span>
+    </form>
+  </div>
+  <hr>
+  <div>
+    <form #formCityGet="ngForm" (ngSubmit)="onCitiesGetPost()" novalidate>
+      <label>POST</label> - <label>api/Server/Cities/get</label>
+      <input type="text" id="cityId" name="cityId" [(ngModel)]="handleCitiesGet.cityUiContent.city.id"
+             (keydown)="buttonPressed = eButtonPressed.None"
+             #cityId="ngModel"
+             [ngClass]="{ 'is-invalid': formCityGet.submitted && formCityGet.invalid }"
+             required
+      />
+      <button type="submit">Send</button>
+      <span *ngIf="buttonPressed == eButtonPressed.CitiesGet">{{handleCitiesGet.cityUiContent.response$ | async}}</span>
+      <span *ngIf="formCityGet.submitted && cityId.invalid" class="error-message">
+        City Id is required
+      </span>
+    </form>
+  </div>
+</div>
