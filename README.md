@@ -10,4 +10,4 @@
 
 `npm run storybook`
 
-[Boost front-end development - Part 2 -Angular with Storybook 🕮][https://medium.com/@ohadinho25/boost-front-end-development-part-2-angular-with-storybook-b986008b4308]
+[Boost front-end development - Part 2 -Angular with Storybook 🕮](https://medium.com/@ohadinho25/boost-front-end-development-part-2-angular-with-storybook-b986008b4308)
