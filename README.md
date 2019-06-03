@@ -1,4 +1,4 @@
-# Angular in-memory-web-api + storybook examples
+# Angular in-memory-web-api 🧠 + storybook 🕮 examples
 
 **In-memory example:** 
 
